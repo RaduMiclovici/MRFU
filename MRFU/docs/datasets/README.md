@@ -3,24 +3,26 @@
 ### 2.1 Sursa datelor
 
 * **Origine:** Set de imagini 
-* **Modul de achiziție:** ☑ Senzori reali / ☐ Simulare / ☐ Fișier extern / ☐ Generare programatică
-* **Perioada / condițiile colectării:** [Ex: Noiembrie 2024 - Ianuarie 2025, condiții experimentale specifice]
+* **Modul de achiziție:** ☐ Senzori reali / ☐ Simulare / ☑ Fișier extern / ☐ Generare programatică
+* **Perioada / condițiile colectării:** Noiembrie 2025 - decembrie 2025, condiții variate de iluminare
 
 ### 2.2 Caracteristicile dataset-ului
 
-* **Număr total de observații:** [Ex: 15,000]
-* **Număr de caracteristici (features):** [Ex: 12]
-* **Tipuri de date:** ☐ Numerice / ☐ Categoriale / ☐ Temporale / ☐ Imagini
-* **Format fișiere:** ☐ CSV / ☐ TXT / ☐ JSON / ☐ PNG / ☐ Altele: [...]
+* **Număr total de observații:** 50
+* **Număr de caracteristici (features):** 6
+* **Tipuri de date:** ☐ Numerice / ☐ Categoriale / ☐ Temporale / ☑ Imagini
+* **Format fișiere:** ☐ CSV / ☐ TXT / ☐ JSON / ☑ PNG / ☐ Altele: [...]
 
 ### 2.3 Descrierea fiecărei caracteristici
 
 | **Caracteristică** | **Tip** | **Unitate** | **Descriere** | **Domeniu valori** |
 |-------------------|---------|-------------|---------------|--------------------|
-| feature_1 | numeric | mm | [...] | 0–150 |
-| feature_2 | categorial | – | [...] | {A, B, C} |
-| feature_3 | numeric | m/s | [...] | 0–2.5 |
-| ... | ... | ... | ... | ... |
+| british_shorthair | image | - | [poze cu british shorthair] | 0–20 |
+| labrador | image | – | [poze cu labradori] | 0-20|
+| maine_coon | image | – | [poze cu maine coon] | 0-20|
+| pug | image | – | [poze cu pug] | 0-20|
+| siamese | image | – | [poze cu siamese] | 0-20|
+| husky | image | – | [poze cu husky] | 0-20|
 
 **Fișier recomandat:**  `data/README.md`
 
@@ -30,8 +32,6 @@
 
 ### 3.1 Statistici descriptive aplicate
 
-* **Medie, mediană, deviație standard**
-* **Min–max și quartile**
 * **Distribuții pe caracteristici** (histograme)
 * **Identificarea outlierilor** (IQR / percentile)
 
@@ -61,9 +61,8 @@
 
 ### 4.2 Transformarea caracteristicilor
 
-* **Normalizare:** Min–Max / Standardizare
+* **Normalizare:** Din rgb in bw si redimensionare la 128x128
 * **Encoding pentru variabile categoriale**
-* **Ajustarea dezechilibrului de clasă** (dacă este cazul)
 
 ### 4.3 Structurarea seturilor de date
 
@@ -97,10 +96,10 @@
 
 ##  6. Stare Etapă (de completat de student)
 
-- [ ] Structură repository configurată
-- [ ] Dataset analizat (EDA realizată)
-- [ ] Date preprocesate
-- [ ] Seturi train/val/test generate
-- [ ] Documentație actualizată în README + `data/README.md`
+- ☑ Structură repository configurată
+- ☐ Dataset analizat (EDA realizată)
+- ☐ Date preprocesate
+- ☐ Seturi train/val/test generate
+- ☑ Documentație actualizată în README + `data/README.md`
 
 ---
