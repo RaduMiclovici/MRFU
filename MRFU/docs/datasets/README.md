@@ -3,7 +3,7 @@
 ### 2.1 Sursa datelor
 
 * **Origine:** Set de imagini 
-* **Modul de achiziție:** ☐ Senzori reali / ☐ Simulare / ☑ Fișier extern / ☐ Generare programatică
+gi* **Modul de achiziție:** ☐ Senzori reali / ☐ Simulare / ☑ Fișier extern / ☐ Generare programatică
 * **Perioada / condițiile colectării:** Noiembrie 2025 - decembrie 2025, condiții variate de iluminare
 
 ### 2.2 Caracteristicile dataset-ului
@@ -98,8 +98,8 @@
 
 - ☑ Structură repository configurată
 - ☐ Dataset analizat (EDA realizată)
-- ☐ Date preprocesate
-- ☐ Seturi train/val/test generate
+- ☑ Date preprocesate
+- ☑ Seturi train/val/test generate
 - ☑ Documentație actualizată în README + `data/README.md`
 
 ---
