@@ -10,9 +10,8 @@ VAL = "data/val"
 # image settings
 SIZE = (224, 224)
 VAL_RATIO = 0.2
-EX = (".jpg", ".jpeg", ".png", ".webp", ".jfif", ".bmp", ".tiff")
+EX = (".jpg")
 
-print("preprocessing script running...")
 
 def save_img(in_path, out_path):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
