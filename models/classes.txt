@@ -1,0 +1,6 @@
+british_shorthair
+husky
+labrador
+maine_coon
+pug
+siamese
