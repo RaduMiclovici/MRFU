@@ -95,32 +95,40 @@ Completați **TOATE** punctele următoare:
 
 Completați tabelul cu hiperparametrii folosiți și **justificați fiecare alegere**:
 
-| **Hiperparametru** | **Valoare Aleasă** | **Justificare** |
+### Tabel justificare hiperparametri
+
+| **Hiperparametru** | **Valoare aleasă** | **Justificare** |
 |--------------------|-------------------|-----------------|
-| Learning rate | Ex: 0.001 | Valoare standard pentru Adam optimizer, asigură convergență stabilă |
-| Batch size | Ex: 32 | Compromis memorie/stabilitate pentru N=[numărul vostru] samples |
-| Number of epochs | Ex: 50 | Cu early stopping după 10 epoci fără îmbunătățire |
-| Optimizer | Ex: Adam | Adaptive learning rate, potrivit pentru RN cu [numărul vostru] straturi |
-| Loss function | Ex: Categorical Crossentropy | Clasificare multi-class cu K=[numărul vostru] clase |
-| Activation functions | Ex: ReLU (hidden), Softmax (output) | ReLU pentru non-linearitate, Softmax pentru probabilități clase |
+| Learning rate | 0.001 | Valoare standard pentru optimizatorul Adam, asigură o convergență stabilă și rapidă |
+| Batch size | 8 | Setul de date este redus (~120 imagini); batch mic ajută la generalizare și reduce overfitting-ul |
+| Number of epochs | 10 | Număr suficient pentru proof-of-concept, evitând supraînvățarea pe un set de date mic |
+| Optimizer | Adam | Optimizator cu rată de învățare adaptivă, potrivit pentru rețele neuronale convoluționale |
+| Loss function | CrossEntropyLoss | Funcție de pierdere adecvată pentru clasificare multi-clasă cu K = 6 clase |
+| Activation functions | ReLU (hidden), Softmax (output) | ReLU introduce non-linearitate, iar Softmax produce probabilități pentru fiecare clasă |
 
-**Justificare detaliată batch size (exemplu):**
+
+### Justificare detaliata batch size
+
+Am ales `batch_size = 16` in cadrul procesului de antrenare, avand in vedere dimensiunea redusa a setului de date si constrangerile de generalizare ale modelului.
+
+Setul de antrenare contine aproximativ N ≈ 120 imagini adica 6 iteratii per epoca
+
+Aceasta alegere reprezinta un compromis optim intre urmatoarele aspecte:
+
+- **Stabilitatea gradientului**:  
+  Un batch size foarte mic (ex. 1–4) ar introduce zgomot ridicat in estimarea gradientului, conducand la diferente mari in val_loss
+
+- **Capacitatea de generalizare**:  
+  Un batch size mediu ajuta modelul sa nu memoreze rapid datele de antrenare, reducand riscul de overfitting
+
+- **Eficienta computationala**:  
+  Batch size-ul ales permite un timp de antrenare ok pe CPU fara a depasi memoria
+
+In urma schimbarii acestui hiperparametru, impreuna cu reducerea ratei de invatare, modelul a obtinut  o acuratete de peste 70% si un F1-score macro de peste 0.70.
 ```
-Am ales batch_size=32 pentru că avem N=15,000 samples → 15,000/32 ≈ 469 iterații/epocă.
-Aceasta oferă un echilibru între:
-- Stabilitate gradient (batch prea mic → zgomot mare în gradient)
-- Memorie GPU (batch prea mare → out of memory)
-- Timp antrenare (batch 32 asigură convergență în ~50 epoci pentru problema noastră)
+
 ```
 
-**Resurse învățare rapidă:**
-- Împărțire date: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html (video 3 min: https://youtu.be/1NjLMWSGosI?si=KL8Qv2SJ1d_mFZfr)  
-- Antrenare simplă Keras: https://keras.io/examples/vision/mnist_convnet/ (secțiunea „Training”)  
-- Antrenare simplă PyTorch: https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#training-an-image-classifier (video 2 min: https://youtu.be/ORMx45xqWkA?si=FXyQEhh0DU8VnuVJ)  
-- F1-score: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html (video 4 min: https://youtu.be/ZQlEcyNV6wc?si=VMCl8aGfhCfp5Egi)
-
-
----
 
 ### Nivel 2 – Recomandat (85-90% din punctaj)
 
